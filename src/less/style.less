@@ -1,0 +1,199 @@
+@import "smart-grid.less";
+@import "var.less";
+@import "fonts.less";
+.reset();
+
+.wrapper {
+	.wrapper();
+}
+
+.body {
+	box-sizing: border-box;
+}
+
+
+//MIXINS BLOCK START
+.mixinplans {
+  //border: @border;    
+  display: flex;    
+  justify-content: space-between;  
+  align-self: center;
+  width: 95%;
+  height: 80px;  
+  margin: 3px 0;
+}
+
+.mixincheckeds {
+  //border: @border;
+  display: flex;          
+  align-items: center;            
+}
+
+.mixincheckblock {
+  border: 5px solid @bordercolor;    
+  border-radius: 50%;
+  width: 25px;
+  height: 25px;    
+  margin: 0 20px;
+}
+
+.mixintextplan {
+  //border: @border;
+  font-family: 'Bebas Neue', cursive;
+  font-size: 1.8rem;
+  color: @colordarkgray;   
+}
+
+.mixintxtper {
+  //border: @border;
+  display: flex;
+  align-items: center;
+  color: @colordarkgray;    
+  font-size: 1.2rem;
+  margin-right: 15px;
+}
+
+//MIXINS BLOCK END
+
+
+
+.wrp {
+  //border: @border;
+  display: flex;
+  flex-direction: column;
+  //height: 100vh;
+  &__frsttask {
+    border: 15px solid @bordercolor;
+    align-self: center;
+    display: flex;    
+    flex-direction: column;    
+    width: 35%;    
+    background-color: @bckgcolor;
+    margin: 50px 0;
+  }
+  
+  &__planone {
+    .mixinplans();
+    margin-top: 20px;
+  }
+  &__checkedone {
+    .mixincheckeds();
+  }
+  &__checkblockone {
+    .mixincheckblock();
+  }
+  &__textplanone {
+    .mixintextplan();    
+  }
+  &__txtperone {
+    .mixintxtper();
+  }
+
+
+  &__plantwo {
+    .mixinplans();
+  }
+  &__checkedtwo {
+    .mixincheckeds();
+  }
+  &__checkblocktwo {
+    .mixincheckblock();
+  }
+  &__textplantwo {
+    .mixintextplan();
+  }
+  &__txtpertwo {
+    .mixintxtper();
+  }
+
+
+  &__planthree {
+    .mixinplans();
+  }
+  &__checkedthree {
+    .mixincheckeds();
+  }
+  &__checkblockthree {
+    .mixincheckblock();
+  }
+  &__textplanthree {
+    .mixintextplan();
+  }
+  &__txtperthree {
+    .mixintxtper();
+  }
+
+  &__numlicenses {
+    //border: @border;
+    border-top: 1px solid @colorline;
+    border-bottom: 1px solid @colorline;
+    display: flex;
+    justify-content: center;    
+    align-items: center;
+    align-self: center;
+    width: 95%;
+    padding: 35px 0;
+    margin: 10px 0;
+  }
+  &__textlicenses {
+    //border: @border;
+    padding: 0 15px;
+  }
+  &__listslicenses {
+    //border: @border;    
+    select {
+      border: 2px solid @colorlightblue;
+      width: 60px;
+      height: 30px;
+      background-color: white;      
+      outline: none;
+    }
+  }
+
+  &__totallprice {
+    //border: @border;
+    display: flex;    
+    align-items: center;
+    align-self: center;
+    flex-direction: column;
+    width: 95%;
+  }
+  &__price {
+    //border: @border;
+    display: flex;
+    margin: 40px 0 20px 0;
+    span {
+      font-size: 2rem;
+      font-family: 'Bebas Neue', cursive;
+      color: @colorgraytext;
+      &:nth-child(2) {
+        color: @colorbluetext;
+        padding: 0 5px;
+      }
+    }
+  }
+  &__buy {
+    //border: @border;
+    display: flex;    
+    button {
+      width: 210px;
+      height: 50px;
+      font-size: 1rem;
+      background-color: @colorgreen;
+      color: white;
+      border-radius: 30px;
+      outline: none;
+      border: none;
+    }
+  }
+  &__selectedplan {
+    //border: @border;
+    margin: 60px 0;
+    span {
+      font-size: 1.5rem;
+      color: @colorbluetext;
+    }
+  }
+
+  
+}

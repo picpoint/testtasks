@@ -53,6 +53,36 @@
   margin-right: 15px;
 }
 
+.mixinrdbtn {
+  display: none;
+}
+
+.mixinrdbtnfake {
+  display: flex;
+  position: relative;
+  height: 25px;
+  width: 25px;
+  border: 5px solid @bordercolor;    
+  border-radius: 50%;
+  margin-right: 15px;                
+  &::before {
+    content: "";
+    position: absolute;
+    background-color: @colorbluepoint;
+    border-radius: 50%;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    width: 15px;
+    height: 15px;
+    opacity: 0;          
+  }
+}
+
+.mixinrdbtnfakebefore {
+  opacity: 1;    
+}
+
 //MIXINS BLOCK END
 
 
@@ -69,59 +99,33 @@
     width: 35%;    
     background-color: @bckgcolor;
     margin: 50px 0;
-  }
-  
+  }  
   &__planone {
     .mixinplans();
-    margin-top: 20px;       
-  }
-  
+    margin-top: 20px;           
+  }  
   &__checkedone {
-    .mixincheckeds();
+    .mixincheckeds();    
   }
   &__checkblockone {
     
   }
   
   &__rdbtn1 {
-    display: none;    
+    .mixinrdbtn();
   }
   &__rdbtn1fake {    
-    display: flex;
-    position: relative;
-    height: 25px;
-    width: 25px;
-    border: 5px solid @bordercolor;    
-    border-radius: 50%;
-    margin-right: 15px;                
-    &::before {
-      content: "";
-      position: absolute;
-      background-color: @colorbluepoint;
-      border-radius: 50%;
-      top: 50%;
-      left: 50%;
-      transform: translate(-50%, -50%);
-      width: 15px;
-      height: 15px;
-      opacity: 0;      
-    }
+    .mixinrdbtnfake();
   }
   &__rdbtn1:checked + &__rdbtn1fake::before {        
-    opacity: 1;
+    .mixinrdbtnfakebefore();
   }
- 
-
-    
-
   &__textplanone {
     .mixintextplan();    
   }
   &__txtperone {
     .mixintxtper();
   }
-
-
   &__plantwo {
     .mixinplans();
   }
@@ -131,6 +135,20 @@
   &__checkblocktwo {
     .mixincheckblock();
   }
+
+  &__rdbtn2 {
+    .mixinrdbtn();
+  }
+  &__rdbtn2fake {    
+    .mixinrdbtnfake();
+  }
+  &__rdbtn2:checked + &__rdbtn2fake::before {        
+    .mixinrdbtnfakebefore();
+  }
+
+
+
+
   &__textplantwo {
     .mixintextplan();
   }
@@ -148,6 +166,20 @@
   &__checkblockthree {
     .mixincheckblock();
   }
+
+
+  &__rdbtn3 {
+    .mixinrdbtn();
+  }
+  &__rdbtn3fake {    
+    .mixinrdbtnfake();
+  }
+  &__rdbtn3:checked + &__rdbtn3fake::before {        
+    .mixinrdbtnfakebefore();
+  }
+
+
+
   &__textplanthree {
     .mixintextplan();
   }

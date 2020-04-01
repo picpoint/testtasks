@@ -30,11 +30,11 @@
 }
 
 .mixincheckblock {
-  border: 5px solid @bordercolor;    
-  border-radius: 50%;
-  width: 25px;
-  height: 25px;    
-  margin: 0 20px;
+  // border: 5px solid @bordercolor;    
+  // border-radius: 50%;
+  // width: 25px;
+  // height: 25px;    
+  // margin: 0 20px;
 }
 
 .mixintextplan {
@@ -60,8 +60,7 @@
 .wrp {
   //border: @border;
   display: flex;
-  flex-direction: column;
-  //height: 100vh;
+  flex-direction: column;  
   &__frsttask {
     border: 15px solid @bordercolor;
     align-self: center;
@@ -74,14 +73,47 @@
   
   &__planone {
     .mixinplans();
-    margin-top: 20px;
+    margin-top: 20px;       
   }
+  
   &__checkedone {
     .mixincheckeds();
   }
   &__checkblockone {
-    .mixincheckblock();
+    
   }
+  
+  &__rdbtn1 {
+    display: none;    
+  }
+  &__rdbtn1fake {    
+    display: flex;
+    position: relative;
+    height: 25px;
+    width: 25px;
+    border: 5px solid @bordercolor;    
+    border-radius: 50%;
+    margin-right: 15px;                
+    &::before {
+      content: "";
+      position: absolute;
+      background-color: @colorbluepoint;
+      border-radius: 50%;
+      top: 50%;
+      left: 50%;
+      transform: translate(-50%, -50%);
+      width: 15px;
+      height: 15px;
+      opacity: 0;      
+    }
+  }
+  &__rdbtn1:checked + &__rdbtn1fake::before {        
+    opacity: 1;
+  }
+ 
+
+    
+
   &__textplanone {
     .mixintextplan();    
   }
@@ -184,6 +216,7 @@
       border-radius: 30px;
       outline: none;
       border: none;
+      cursor: pointer;
     }
   }
   &__selectedplan {

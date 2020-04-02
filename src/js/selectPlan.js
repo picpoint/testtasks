@@ -42,10 +42,11 @@ class BuyLicens {
     this.blockPlan.addEventListener('click', (e) => {
       for(let i = 0; i < this.massplans.length; i++) {                
         this.massplans[i].style.backgroundColor = '#f8f8f8';
-        this.massplans[i].style.border = 'none';
+        this.massplans[i].style.border = 'none';        
+        
         if(this.blockPlan == e.currentTarget) {
           this.blockPlan.style.backgroundColor = '#ebf4f7';
-          this.blockPlan.style.border = '1px solid #b8d7e2';
+          this.blockPlan.style.border = '1px solid #b8d7e2';          
         }        
       }
     });    

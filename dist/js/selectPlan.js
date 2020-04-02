@@ -2,11 +2,11 @@ let planone = document.querySelector('.wrp__planone');
 let plantwo = document.querySelector('.wrp__plantwo');
 let planthree = document.querySelector('.wrp__planthree');
 let checkblockone = document.querySelector('.wrp__checkblockone');
+let arrplans = [planone, plantwo, planthree];
 let url = 'https://raw.githubusercontent.com/picpoint/testtasks/master/datas.json';
 let slct = document.querySelector('.wrp__slct');
 let obj;
 
-console.log(slct);
 
 
 window.addEventListener('load', () => {
@@ -18,9 +18,9 @@ window.addEventListener('load', () => {
     if(xhr.readyState == 4 && xhr.status == 200) {
       obj = xhr.response;
 
-      for(let i = 0; i < obj.nol.length; i++) {
-        console.log(obj.nol[i]);
-        let option = document.createElement('option', `value="${obj.nol[i]}"`);
+      for(let i = 0; i < obj.nol.length; i++) {        
+        let option = document.createElement('option');
+        option.value = obj.nol[i];
         option.innerHTML = obj.nol[i];
         slct.appendChild(option);
       }
@@ -32,5 +32,34 @@ window.addEventListener('load', () => {
 
 
 
+class BuyLicens {
+  constructor(massplans, blockPlan) {
+    this.massplans = massplans;
+    this.blockPlan = blockPlan;
+  }
+
+  selectMethod() {
+    this.blockPlan.addEventListener('click', (e) => {
+      for(let i = 0; i < this.massplans.length; i++) {                
+        this.massplans[i].style.backgroundColor = '#f8f8f8';
+        this.massplans[i].style.border = 'none';
+        if(this.blockPlan == e.currentTarget) {
+          this.blockPlan.style.backgroundColor = '#ebf4f7';
+          this.blockPlan.style.border = '1px solid #b8d7e2';
+        }        
+      }
+    });    
+  }
 
 
+}
+
+
+let pln1 = new BuyLicens(arrplans, planone);
+pln1.selectMethod();
+
+let pln2 = new BuyLicens(arrplans, plantwo);
+pln2.selectMethod();
+
+let pln3 = new BuyLicens(arrplans, planthree);
+pln3.selectMethod();

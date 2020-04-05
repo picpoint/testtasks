@@ -46,7 +46,7 @@ class BuyLicens {
         
         if(this.blockPlan == e.currentTarget) {
           this.blockPlan.style.backgroundColor = '#ebf4f7';
-          this.blockPlan.style.border = '1px solid #b8d7e2';          
+          this.blockPlan.style.border = '1px solid #b8d7e2';                    
         }        
       }
     });    

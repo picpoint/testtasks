@@ -17,7 +17,6 @@
   //border: @border;    
   display: flex;    
   justify-content: space-between;  
-  align-self: center;
   width: 95%;
   height: 80px;  
   margin: 3px 0;
@@ -94,21 +93,26 @@
   &__frsttask {
     border: 15px solid @bordercolor;
     align-self: center;
-    display: flex;    
+    display: flex;        
     flex-direction: column;    
     width: 35%;    
     background-color: @bckgcolor;
-    margin: 50px 0;
+    margin: 50px 0;    
   }  
-  &__planone {
-    .mixinplans();
+  &__lbl {
+    //border: @border;
+    display: flex;
+    justify-content: center;    
+  }
+  &__planone {        
+    .mixinplans();    
     margin-top: 20px;           
   }  
   &__checkedone {
-    .mixincheckeds();    
+    .mixincheckeds();        
   }
   &__checkblockone {
-    
+
   }
   
   &__rdbtn1 {
@@ -120,7 +124,7 @@
   &__rdbtn1:checked + &__rdbtn1fake::before {        
     .mixinrdbtnfakebefore();
   }
-  &__textplanone {
+  &__textplanone {    
     .mixintextplan();    
   }
   &__txtperone {

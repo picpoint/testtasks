@@ -3,8 +3,10 @@ let plantwo = document.querySelector('.wrp__plantwo');
 let planthree = document.querySelector('.wrp__planthree');
 let checkblockone = document.querySelector('.wrp__checkblockone');
 let arrplans = [planone, plantwo, planthree];
-let url = 'https://raw.githubusercontent.com/picpoint/testtasks/master/datas.json';
 let slct = document.querySelector('.wrp__slct');
+let selectedplantext1 = document.querySelector('.wrp__selectedplan').firstElementChild;                                            // нижний текст показывающий выбранный план
+let selectedplantext2 = document.querySelector('.wrp__selectedplan').lastElementChild;
+let url = 'https://raw.githubusercontent.com/picpoint/testtasks/master/datas.json';
 let obj;
 
 
@@ -47,6 +49,9 @@ class BuyLicens {
         if(this.blockPlan == e.currentTarget) {
           this.blockPlan.style.backgroundColor = '#ebf4f7';
           this.blockPlan.style.border = '1px solid #b8d7e2';                    
+          selectedplantext1.innerHTML = 'Selected plan: ';
+          let numbofplan = e.currentTarget.firstElementChild.lastElementChild.firstElementChild.innerHTML;          
+          selectedplantext2.innerHTML = numbofplan.substr(13);
         }        
       }
     });    

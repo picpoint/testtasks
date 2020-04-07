@@ -56,20 +56,12 @@ class BuyLicens {
           let numbofplan = e.currentTarget.firstElementChild.lastElementChild.firstElementChild.innerHTML;          
           selectedplantext2.innerText = numbofplan.substr(13);          
         }
-      }
-
-      // console.log(slct);        
-      // console.log(slct.options);
-      // console.log(`slct.selectedIndex - ${slct.selectedIndex}`);
-      // console.log(`slct.value - ${slct.value}`);
-      
+      }      
     });    
 
     this.slct.addEventListener('click', () => {
       console.log(this.slct.value);      
     });
-
-
 
 
   }

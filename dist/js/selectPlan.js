@@ -4,11 +4,13 @@ let planthree = document.querySelector('.wrp__planthree');
 let checkblockone = document.querySelector('.wrp__checkblockone');
 let arrplans = [planone, plantwo, planthree];
 let slct = document.querySelector('.wrp__slct');
-let selectedplantext1 = document.querySelector('.wrp__selectedplan').firstElementChild;                                            // нижний текст показывающий выбранный план
+let selectedplantext1 = document.querySelector('.wrp__selectedplan').firstElementChild;                                 // нижний текст показывающий выбранный план
 let selectedplantext2 = document.querySelector('.wrp__selectedplan').lastElementChild;
+let totalPrice = document.querySelector('.wrp__price').lastElementChild;                                                // кнопка в которой отображается итоговая сумма
 let url = 'https://raw.githubusercontent.com/picpoint/testtasks/master/datas.json';
 let obj;
 
+console.log(totalPrice);
 
 
 window.addEventListener('load', () => {
@@ -35,9 +37,10 @@ window.addEventListener('load', () => {
 
 
 class BuyLicens {
-  constructor(massplans, blockPlan) {
+  constructor(massplans, blockPlan, slct) {
     this.massplans = massplans;
     this.blockPlan = blockPlan;
+    this.slct = slct;
   }
 
   selectMethod() {
@@ -49,23 +52,39 @@ class BuyLicens {
         if(this.blockPlan == e.currentTarget) {
           this.blockPlan.style.backgroundColor = '#ebf4f7';
           this.blockPlan.style.border = '1px solid #b8d7e2';                    
-          selectedplantext1.innerHTML = 'Selected plan: ';
+          selectedplantext1.innerText = 'Selected plan: ';
           let numbofplan = e.currentTarget.firstElementChild.lastElementChild.firstElementChild.innerHTML;          
-          selectedplantext2.innerHTML = numbofplan.substr(13);
-        }        
+          selectedplantext2.innerText = numbofplan.substr(13);          
+        }
       }
+
+      // console.log(slct);        
+      // console.log(slct.options);
+      // console.log(`slct.selectedIndex - ${slct.selectedIndex}`);
+      // console.log(`slct.value - ${slct.value}`);
+      
     });    
+
+    this.slct.addEventListener('click', () => {
+      console.log(this.slct.value);      
+    });
+
+
+
+
   }
+
+
 
 
 }
 
 
-let pln1 = new BuyLicens(arrplans, planone);
+let pln1 = new BuyLicens(arrplans, planone, slct);
 pln1.selectMethod();
 
-let pln2 = new BuyLicens(arrplans, plantwo);
+let pln2 = new BuyLicens(arrplans, plantwo, slct);
 pln2.selectMethod();
 
-let pln3 = new BuyLicens(arrplans, planthree);
+let pln3 = new BuyLicens(arrplans, planthree, slct);
 pln3.selectMethod();

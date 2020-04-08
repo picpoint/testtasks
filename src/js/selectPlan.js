@@ -1,19 +1,18 @@
-let planone = document.querySelector('.wrp__planone');
-let plantwo = document.querySelector('.wrp__plantwo');
-let planthree = document.querySelector('.wrp__planthree');
-let checkblockone = document.querySelector('.wrp__checkblockone');
-let arrplans = [planone, plantwo, planthree];
-let slct = document.querySelector('.wrp__slct');
-let selectedplantext1 = document.querySelector('.wrp__selectedplan').firstElementChild;                                 // нижний текст показывающий выбранный план
-let selectedplantext2 = document.querySelector('.wrp__selectedplan').lastElementChild;
-let totalPrice = document.querySelector('.wrp__price').lastElementChild;                                                // кнопка в которой отображается итоговая сумма
-let url = 'https://raw.githubusercontent.com/picpoint/testtasks/master/datas.json';
+let planone = document.querySelector('.wrp__planone');                                                                 // первый блок LICENSE PLAN #1
+let plantwo = document.querySelector('.wrp__plantwo');                                                                 // второй блок LICENSE PLAN #2
+let planthree = document.querySelector('.wrp__planthree');                                                             // третий блок LICENSE PLAN #3
+let arrplans = [planone, plantwo, planthree];                                                                          // массив блоков LICENSE PLAN #1/#2/#3
+let slct = document.querySelector('.wrp__slct');                                                                       // тег select выбора количества лицензий
+let selectedplantext1 = document.querySelector('.wrp__selectedplan').firstElementChild;                                // нижний текст показывающий надпись Selected plan
+let selectedplantext2 = document.querySelector('.wrp__selectedplan').lastElementChild;                                 // нижний текст показывающий номер выбраттного плана #1/#2/#3
+let totalPrice = document.querySelector('.wrp__price').lastElementChild;                                               // кнопка в которой отображается итоговая сумма
+let url = 'https://raw.githubusercontent.com/picpoint/testtasks/master/datas.json';                                    // url откуда считывает json-файл
 let obj;
 
 
 
-window.addEventListener('load', () => {
-  let xhr = new XMLHttpRequest();
+window.addEventListener('load', () => {                                                                                // события загрузки страницы
+  let xhr = new XMLHttpRequest();                                                                                      
   xhr.responseType = 'json';
   xhr.open('GET', url);
   xhr.setRequestHeader('Content-type', 'application/x-www-form-urlencoded');

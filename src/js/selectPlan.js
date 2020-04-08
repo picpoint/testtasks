@@ -10,7 +10,6 @@ let totalPrice = document.querySelector('.wrp__price').lastElementChild;        
 let url = 'https://raw.githubusercontent.com/picpoint/testtasks/master/datas.json';
 let obj;
 
-console.log(totalPrice);
 
 
 window.addEventListener('load', () => {
@@ -44,6 +43,9 @@ class BuyLicens {
   }
 
   selectMethod() {
+    let numbofplan;
+    let selectValue;
+
     this.blockPlan.addEventListener('click', (e) => {
       for(let i = 0; i < this.massplans.length; i++) {                
         this.massplans[i].style.backgroundColor = '#f8f8f8';
@@ -53,14 +55,30 @@ class BuyLicens {
           this.blockPlan.style.backgroundColor = '#ebf4f7';
           this.blockPlan.style.border = '1px solid #b8d7e2';                    
           selectedplantext1.innerText = 'Selected plan: ';
-          let numbofplan = e.currentTarget.firstElementChild.lastElementChild.firstElementChild.innerHTML;          
+          numbofplan = e.currentTarget.firstElementChild.lastElementChild.firstElementChild.innerHTML;          
           selectedplantext2.innerText = numbofplan.substr(13);          
+          //console.log(numbofplan);
         }
       }      
+      
+      numbofplan = numbofplan.substr(14);
+      console.log(numbofplan);
+
+      if(numbofplan == 1) {
+        totalPrice.innerText = '$ 13';
+      } else if(numbofplan == 2) {
+        totalPrice.innerText = '$ 22';
+      } else if(numbofplan == 3) {
+        totalPrice.innerText = '$ 34';
+      }
+      
+
     });    
 
     this.slct.addEventListener('click', () => {
-      console.log(this.slct.value);      
+      //console.log(this.slct.value);      
+      selectValue = this.slct.value;
+      console.log(selectValue);
     });
 
 

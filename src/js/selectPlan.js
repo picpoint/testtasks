@@ -44,8 +44,9 @@ class BuyLicens {
 
   selectMethod() {
     let numbofplan;
-    let selectValue;
-    let perlicens;
+    let selectValue = 1;    
+    let nopValue;
+    let slctV;
 
     this.blockPlan.addEventListener('click', (e) => {
       for(let i = 0; i < this.massplans.length; i++) {                
@@ -59,18 +60,34 @@ class BuyLicens {
           numbofplan = e.currentTarget.firstElementChild.lastElementChild.firstElementChild.innerHTML;          
           selectedplantext2.innerText = numbofplan.substr(13);
         }
-      }      
+      }            
 
-      console.log(numbofplan);
-    }); 
-
-
-    this.slct.addEventListener('click', () => {      
-      selectValue = this.slct.value;
+      let sup = document.createElement('sup');
+      sup.style.fontSize = '1rem';
+      
+      numbofplan = numbofplan.substr(14);      
+      
+      this.slct.addEventListener('click', () => {      
+        selectValue = this.slct.value;                      
+      });
+  
+      
+      console.log(`numbofplan - ${numbofplan}`);
       console.log(`selectValue - ${selectValue}`);
-    });
-       
-    
+
+
+      if(numbofplan == 1) {
+        totalPrice.innerHTML = 13 * selectValue;                      
+      } else if(numbofplan == 2) {
+        totalPrice.innerHTML = 22 * selectValue;        
+      } else if(numbofplan == 3) {
+        totalPrice.innerHTML = 34 * selectValue;        
+      }
+
+      
+    }); 
+  
+   
 
     
   }

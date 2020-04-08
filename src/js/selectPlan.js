@@ -45,6 +45,7 @@ class BuyLicens {
   selectMethod() {
     let numbofplan;
     let selectValue;
+    let perlicens;
 
     this.blockPlan.addEventListener('click', (e) => {
       for(let i = 0; i < this.massplans.length; i++) {                
@@ -56,38 +57,27 @@ class BuyLicens {
           this.blockPlan.style.border = '1px solid #b8d7e2';                    
           selectedplantext1.innerText = 'Selected plan: ';
           numbofplan = e.currentTarget.firstElementChild.lastElementChild.firstElementChild.innerHTML;          
-          selectedplantext2.innerText = numbofplan.substr(13);          
-          //console.log(numbofplan);
+          selectedplantext2.innerText = numbofplan.substr(13);
         }
       }      
-      
-      numbofplan = numbofplan.substr(14);
+
       console.log(numbofplan);
+    }); 
 
-      if(numbofplan == 1) {
-        totalPrice.innerText = '$ 13';
-      } else if(numbofplan == 2) {
-        totalPrice.innerText = '$ 22';
-      } else if(numbofplan == 3) {
-        totalPrice.innerText = '$ 34';
-      }
-      
 
-    });    
-
-    this.slct.addEventListener('click', () => {
-      //console.log(this.slct.value);      
+    this.slct.addEventListener('click', () => {      
       selectValue = this.slct.value;
-      console.log(selectValue);
+      console.log(`selectValue - ${selectValue}`);
     });
+       
+    
 
-
+    
   }
 
 
-
-
 }
+
 
 
 let pln1 = new BuyLicens(arrplans, planone, slct);

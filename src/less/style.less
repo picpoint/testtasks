@@ -13,6 +13,16 @@
 
 
 //MIXINS BLOCK START
+.mixintasks {
+  border: 15px solid @bordercolor;
+  align-self: center;
+  display: flex;        
+  flex-direction: column;    
+  width: 35%;    
+  background-color: @bckgcolor;
+  margin: 50px 0;    
+}
+
 .mixinplans {
   //border: @border;    
   display: flex;    
@@ -91,13 +101,7 @@
   display: flex;
   flex-direction: column;  
   &__frsttask {
-    border: 15px solid @bordercolor;
-    align-self: center;
-    display: flex;        
-    flex-direction: column;    
-    width: 35%;    
-    background-color: @bckgcolor;
-    margin: 50px 0;    
+    .mixintasks();
   }  
   &__lbl {
     //border: @border;
@@ -265,6 +269,16 @@
       font-size: 1.5rem;
       color: @colorbluetext;
       margin-left: 5px;
+    }
+  }
+
+
+  &__scndtask {    
+    .mixintasks();            
+    align-items: center;
+    #cnv {
+      //border: @border;
+      align-self: center;
     }
   }
 

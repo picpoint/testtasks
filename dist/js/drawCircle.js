@@ -40,16 +40,20 @@ canvas.addEventListener('mousemove', (e) => {
   let x = e.offsetX;
   let y = e.offsetY;
   
+  console.log('------------');
   console.log(`X - ${x}`);
   console.log(`Y - ${y}`);
+  console.log('------------');
 
   let randX = randValue();
   let randY = randValue();
   
   ctx.clearRect(0, 0, 500, 500);
-    
+
   smallCircle(x - 20, y - 20);
   bigCircle();
+  ctx.clip();
+    
   
 
 

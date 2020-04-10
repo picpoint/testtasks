@@ -18,10 +18,15 @@ function smallCircle(x, y) {
   ctx.beginPath();
   ctx.lineWidth = 1;  
   ctx.fillStyle = '#0294bf';
-  ctx.arc(x, y, 30, 0, Pi*2, false);
+  ctx.arc(x, y, 25, 0, Pi*2, false);
   ctx.closePath();
   ctx.stroke();
   ctx.fill();
+}
+
+
+function randValue() {
+  return Math.floor(Math.random() * 1000);  
 }
 
 
@@ -29,20 +34,24 @@ bigCircle();
 smallCircle(170, 170);
 
 
+
+
 canvas.addEventListener('mousemove', (e) => {  
   let x = e.offsetX;
   let y = e.offsetY;
   
-  // console.log(`X - ${x}`);
-  // console.log(`Y - ${y}`);
+  console.log(`X - ${x}`);
+  console.log(`Y - ${y}`);
 
-
-  if(x > 130 && y > 130) {        
-    smallCircle(190, 190);    
-  }
+  let randX = randValue();
+  let randY = randValue();
   
-
-  ctx.beginPath();
+  ctx.clearRect(0, 0, 500, 500);
+    
+  smallCircle(x - 20, y - 20);
+  bigCircle();
+  
 
 
 });
+

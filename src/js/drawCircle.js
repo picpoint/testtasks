@@ -25,37 +25,18 @@ function smallCircle(x, y) {
 }
 
 
-function randValue() {
-  return Math.floor(Math.random() * 1000);  
-}
-
 
 bigCircle();
 smallCircle(170, 170);
 
 
-
-
 canvas.addEventListener('mousemove', (e) => {  
   let x = e.offsetX;
-  let y = e.offsetY;
-  
-  console.log('------------');
-  console.log(`X - ${x}`);
-  console.log(`Y - ${y}`);
-  console.log('------------');
-
-  let randX = randValue();
-  let randY = randValue();
+  let y = e.offsetY;  
   
   ctx.clearRect(0, 0, 500, 500);
-
   smallCircle(x - 20, y - 20);
   bigCircle();
   ctx.clip();
-    
-  
-
-
 });
 

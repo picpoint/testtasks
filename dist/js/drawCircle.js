@@ -4,39 +4,47 @@ let ctx = canvas.getContext('2d');
 const Pi = Math.PI;
 
 
-function bigCircle() {
-  ctx.beginPath();
-  ctx.lineWidth = 3;
-  ctx.strokeStyle = '#34648e';
-  ctx.arc(250, 250, 230, 0, Pi*2, false);
-  ctx.closePath();  
-  ctx.stroke();
-}
+class DrawCircles {
+  constructor(canvas, ctx) {
+    this.canvas = canvas;
+    this.ctx = ctx;
+  }
 
-
-function smallCircle(x, y) {
-  ctx.beginPath();
-  ctx.lineWidth = 1;  
-  ctx.fillStyle = '#0294bf';
-  ctx.arc(x, y, 25, 0, Pi*2, false);
-  ctx.closePath();
-  ctx.stroke();
-  ctx.fill();
-}
-
-
-
-bigCircle();
-smallCircle(170, 170);
-
-
-canvas.addEventListener('mousemove', (e) => {  
-  let x = e.offsetX;
-  let y = e.offsetY;  
+  bigCircle() {
+    this.ctx.beginPath();
+    this.ctx.lineWidth = 3;
+    this.ctx.strokeStyle = '#34648e';
+    this.ctx.arc(250, 250, 230, 0, Pi*2, false);
+    this.ctx.closePath();  
+    this.ctx.stroke();
+  }
   
-  ctx.clearRect(0, 0, 500, 500);
-  smallCircle(x - 20, y - 20);
-  bigCircle();
-  ctx.clip();
-});
+  smallCircle(x, y) {
+    this.ctx.beginPath();
+    this.ctx.lineWidth = 1;  
+    this.ctx.fillStyle = '#0294bf';
+    this.ctx.arc(x, y, 25, 0, Pi*2, false);
+    this.ctx.closePath();
+    this.ctx.stroke();
+    this.ctx.fill();
+  }
+
+  makeDraw() {
+    this.canvas.addEventListener('mousemove', (e) => {  
+      let x = e.offsetX;
+      let y = e.offsetY;        
+      this.ctx.clearRect(0, 0, 500, 500);
+      this.smallCircle(x - 20, y - 20);
+      this.bigCircle();
+      this.ctx.clip();
+    });
+  }
+
+}
+
+
+let drws = new DrawCircles(canvas, ctx);
+drws.bigCircle();
+drws.smallCircle(170, 170);
+drws.makeDraw();
 

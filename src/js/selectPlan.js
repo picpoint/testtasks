@@ -6,8 +6,10 @@ let slct = document.querySelector('.wrp__slct');                                
 let selectedplantext1 = document.querySelector('.wrp__selectedplan').firstElementChild;                                // нижний текст показывающий надпись Selected plan
 let selectedplantext2 = document.querySelector('.wrp__selectedplan').lastElementChild;                                 // нижний текст показывающий номер выбраттного плана #1/#2/#3
 let totalPrice = document.querySelector('.wrp__price').lastElementChild;                                               // кнопка в которой отображается итоговая сумма
+let buy = document.querySelector('.wrp__buy').firstElementChild;                                                       // кнопка купить
 let url = 'https://raw.githubusercontent.com/picpoint/testtasks/master/datas.json';                                    // url откуда считывает json-файл
 let obj;
+let urlToOpen;
 
 
 
@@ -76,7 +78,23 @@ class BuyLicens {                                                               
       let sup = document.createElement('sup');                                                                          // создаём элемент sup
       sup.style.fontSize = '1rem';
       totalPrice.insertAdjacentHTML('beforeEnd', '<sup>US</sup>');                                                      // вставляем внутрь элемента в конец
+
+
+      buy.addEventListener('click', () => {
+        console.log('event click');
+        let url = new URL('https://someserver.ru');
+        let urlParams = url.searchParams;
+        urlParams.append('number_of_plan', numbofplan);
+        urlParams.append('select_value', selectValue);        
+        console.log(url.href);        
+        urlToOpen = url.href;
+        //location.href = url.href;
+        //window.open(url.href, '_blank');
+      });
+      window.open(urlToOpen, '_blank');
     });     
+    
+
   }
 
 

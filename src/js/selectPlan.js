@@ -10,6 +10,8 @@ let buy = document.querySelector('.wrp__buy').firstElementChild;                
 let url = 'https://raw.githubusercontent.com/picpoint/testtasks/master/datas.json';                                    // url откуда считывает json-файл
 let obj;
 let urlToOpen;
+let numbofplan;
+let selectValue = 1;        
 
 
 
@@ -36,17 +38,17 @@ window.addEventListener('load', () => {                                         
 
 
 
+
 class BuyLicens {                                                                                                       // класс для покупки лицензии
-  constructor(massplans, blockPlan, slct) {                                                                             // в конструктор передаём массив блоков, 
+  constructor(massplans, blockPlan, slct, btnbuy) {                                                                             // в конструктор передаём массив блоков, 
     this.massplans = massplans;                                                                                         // |- конкретный блок и select 
     this.blockPlan = blockPlan;
     this.slct = slct;
+    this.btnbuy = btnbuy;
   }
 
-  selectMethod() {
-    let numbofplan;
-    let selectValue = 1;        
 
+  selectMethod() {
     this.blockPlan.addEventListener('click', (e) => {                                                                   // вешаем событие на конкретную кнопку
       for(let i = 0; i < this.massplans.length; i++) {                                                                  // перебераем массив блоков
         this.massplans[i].style.backgroundColor = '#f8f8f8';                                                            // каждому применяем оформление не активное
@@ -77,24 +79,21 @@ class BuyLicens {                                                               
 
       let sup = document.createElement('sup');                                                                          // создаём элемент sup
       sup.style.fontSize = '1rem';
-      totalPrice.insertAdjacentHTML('beforeEnd', '<sup>US</sup>');                                                      // вставляем внутрь элемента в конец
+      totalPrice.insertAdjacentHTML('beforeEnd', '<sup>US</sup>');                                                      // вставляем внутрь элемента в конец            
+    });
+  }
 
 
-      buy.addEventListener('click', () => {
-        console.log('event click');
-        let url = new URL('https://someserver.ru');
-        let urlParams = url.searchParams;
-        urlParams.append('number_of_plan', numbofplan);
-        urlParams.append('select_value', selectValue);        
-        console.log(url.href);        
-        urlToOpen = url.href;
-        //location.href = url.href;
-        //window.open(url.href, '_blank');
-      });
-      window.open(urlToOpen, '_blank');
-    });     
-    
 
+  followOnLink() {
+    this.btnbuy.addEventListener('click', (e) => {    
+      let url = new URL('https://someserver.ru');
+      let urlParams = url.searchParams;
+      urlParams.append('number_of_plan', numbofplan);
+      urlParams.append('select_value', selectValue);            
+      urlToOpen = url.href;        
+      window.open(urlToOpen, '_blank');    
+    });
   }
 
 
@@ -102,11 +101,15 @@ class BuyLicens {                                                               
 
 
 
-let pln1 = new BuyLicens(arrplans, planone, slct);
+
+let pln1 = new BuyLicens(arrplans, planone, slct, buy);
 pln1.selectMethod();
+pln1.followOnLink();
 
-let pln2 = new BuyLicens(arrplans, plantwo, slct);
+let pln2 = new BuyLicens(arrplans, plantwo, slct, buy);
 pln2.selectMethod();
+pln2.followOnLink();
 
-let pln3 = new BuyLicens(arrplans, planthree, slct);
+let pln3 = new BuyLicens(arrplans, planthree, slct, buy);
 pln3.selectMethod();
+pln3.followOnLink();

@@ -34,8 +34,39 @@ class DrawCircles {
       let x = e.offsetX;
       let y = e.offsetY;        
       
+      console.log('------------');
+      console.log(`X - ${x}`);
+      console.log(`Y - ${y}`);
+      console.log('------------');
+
       this.ctx.clearRect(0, 0, 500, 500);
-      this.smallCircle(x - 20, y - 20);
+      
+      if(x < 70) {
+        x = 50;        
+        console.log(`X < 70 == ${x}`);
+        console.log(`Y < 470 == ${y}`);
+        this.smallCircle(x, y);
+      } else if(x > 470) {
+        x = 450;                
+        console.log(`X < 70 == ${x}`);
+        console.log(`Y < 470 == ${y}`);
+        this.smallCircle(x, y);
+      } else if(y < 70) {
+        y = 50;
+        console.log(`X < 70 == ${x}`);
+        console.log(`Y < 470 == ${y}`);
+        this.smallCircle(x, y);
+      } else if(y > 470) {
+        y = 450;
+        console.log(`X < 70 == ${x}`);
+        console.log(`Y < 470 == ${y}`);
+        this.smallCircle(x, y);
+      } else {
+        console.log(`X < 70 == ${x}`);
+        console.log(`Y < 470 == ${y}`);
+        this.smallCircle(x - 20, y - 20);
+      }
+      
       this.bigCircle();
       
       

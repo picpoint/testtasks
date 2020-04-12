@@ -85,14 +85,14 @@ class BuyLicens {                                                               
 
 
 
-  followOnLink() {
-    this.btnbuy.addEventListener('click', (e) => {    
-      let url = new URL('https://someserver.ru');
-      let urlParams = url.searchParams;
-      urlParams.append('number_of_plan', numbofplan);
-      urlParams.append('select_value', selectValue);            
-      urlToOpen = url.href;        
-      window.open(urlToOpen, '_blank');    
+  followOnLink() {                                                                                                      // метод для перехода по ссылке
+    this.btnbuy.addEventListener('click', (e) => {                                                                      // вешаем событие на кнопку BUY NOW
+      let url = new URL('https://someserver.ru');                                                                       // какая то ссылка
+      let urlParams = url.searchParams;                                                                                 // применяем правильное кодирование ссылки
+      urlParams.append('number_of_plan', numbofplan);                                                                   // добавляем параметр numbofplan
+      urlParams.append('select_value', selectValue);                                                                    // добавляем параметр selectValue
+      urlToOpen = url.href;                                                                                             // переменной присваиваем ссылку urlToOpen
+      window.open(urlToOpen, '_blank');                                                                                 // открываем ссылку в новом окне
     });
   }
 

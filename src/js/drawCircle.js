@@ -1,4 +1,4 @@
-let canvas = document.getElementById('cnv');
+let canvas = document.getElementById('cnv1');
 let ctx = canvas.getContext('2d');
 
 const Pi = Math.PI;

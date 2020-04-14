@@ -1,10 +1,10 @@
-let canvas = document.getElementById('cnv');
-let ctx = canvas.getContext('2d');
+let canvas2 = document.getElementById('cnv2');
+let ctx2 = canvas.getContext('2d');
 
-const Pi = Math.PI;
+//const Pi = Math.PI;
 
 
-class DrawCircles {
+class DrawCircles2 {
   constructor(canvas, ctx) {
     this.canvas = canvas;
     this.ctx = ctx;
@@ -41,7 +41,7 @@ class DrawCircles {
 
       this.ctx.clearRect(0, 0, 500, 500);
       
-      if(x < 70) {
+      if(x < 250 - 180) {
         x = 50;        
         console.log(`X < 70 == ${x}`);
         console.log(`Y < 470 == ${y}`);
@@ -67,9 +67,7 @@ class DrawCircles {
         this.smallCircle(x - 20, y - 20);
       }
       
-      this.bigCircle();
-      
-      
+      this.bigCircle();      
       
     });
   }
@@ -77,8 +75,8 @@ class DrawCircles {
 }
 
 
-let drws = new DrawCircles(canvas, ctx);
-drws.bigCircle();
-drws.smallCircle(170, 170);
-drws.makeDraw();
+let drws2 = new DrawCircles2(canvas2, ctx2);
+drws2.bigCircle();
+drws2.smallCircle(170, 170);
+drws2.makeDraw();
 

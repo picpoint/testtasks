@@ -1,33 +1,15 @@
 let canvas2 = document.getElementById('cnv2');
-let ctx2 = canvas.getContext('2d');
-
-//const Pi = Math.PI;
+let ctx2 = canvas2.getContext('2d');
 
 
-class DrawCircles2 {
+
+class DrwCrcl extends DrawCircles {
   constructor(canvas, ctx) {
+    super();
     this.canvas = canvas;
     this.ctx = ctx;
   }
 
-  bigCircle() {
-    this.ctx.beginPath();
-    this.ctx.lineWidth = 3;
-    this.ctx.strokeStyle = '#34648e';
-    this.ctx.arc(250, 250, 230, 0, Pi*2, false);
-    this.ctx.closePath();  
-    this.ctx.stroke();
-  }
-  
-  smallCircle(x, y) {
-    this.ctx.beginPath();
-    this.ctx.lineWidth = 1;  
-    this.ctx.fillStyle = '#0294bf';
-    this.ctx.arc(x, y, 25, 0, Pi*2, false);
-    this.ctx.closePath();
-    this.ctx.stroke();
-    this.ctx.fill();
-  }
 
   makeDraw() {
     this.canvas.addEventListener('mousemove', (e) => {  
@@ -75,7 +57,7 @@ class DrawCircles2 {
 }
 
 
-let drws2 = new DrawCircles2(canvas2, ctx2);
+let drws2 = new DrwCrcl(canvas2, ctx2);
 drws2.bigCircle();
 drws2.smallCircle(170, 170);
 drws2.makeDraw();

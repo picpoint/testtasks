@@ -1,9 +1,9 @@
-let canvas2 = document.getElementById('cnv2');
-let ctx2 = canvas2.getContext('2d');
+let canvas2 = document.getElementById('cnv2');                                                    // второй канвас во втором окне
+let ctx2 = canvas2.getContext('2d');                                                              // получаем контекст
 
 
 
-class DrwCrcl extends DrawCircles {
+class DrwCrcl extends DrawCircles {                                                               // класс DrwCrcl расширяем на основе старого класса DrawCircles
   constructor(canvas, ctx) {
     super();
     this.canvas = canvas;
@@ -11,41 +11,26 @@ class DrwCrcl extends DrawCircles {
   }
 
 
-  makeDraw() {
-    this.canvas.addEventListener('mousemove', (e) => {  
+  makeDraw() {                                                                                    // метод рисования
+    this.canvas.addEventListener('mousemove', (e) => {                                            // вешаем событие по движению мыши
       let x = e.offsetX;
-      let y = e.offsetY;        
-      
-      console.log('------------');
-      console.log(`X - ${x}`);
-      console.log(`Y - ${y}`);
-      console.log('------------');
+      let y = e.offsetY;              
 
       this.ctx.clearRect(0, 0, 500, 500);
       
-      if(x < 250 - 180) {
-        x = 50;        
-        console.log(`X < 70 == ${x}`);
-        console.log(`Y < 470 == ${y}`);
+      if(x < 70) {                                                                                // условия не выхода за границу круга
+        x = 50;                
         this.smallCircle(x, y);
       } else if(x > 470) {
-        x = 450;                
-        console.log(`X < 70 == ${x}`);
-        console.log(`Y < 470 == ${y}`);
+        x = 450;                        
         this.smallCircle(x, y);
       } else if(y < 70) {
-        y = 50;
-        console.log(`X < 70 == ${x}`);
-        console.log(`Y < 470 == ${y}`);
+        y = 50;        
         this.smallCircle(x, y);
       } else if(y > 470) {
-        y = 450;
-        console.log(`X < 70 == ${x}`);
-        console.log(`Y < 470 == ${y}`);
+        y = 450;        
         this.smallCircle(x, y);
-      } else {
-        console.log(`X < 70 == ${x}`);
-        console.log(`Y < 470 == ${y}`);
+      } else {        
         this.smallCircle(x - 20, y - 20);
       }
       
@@ -57,7 +42,7 @@ class DrwCrcl extends DrawCircles {
 }
 
 
-let drws2 = new DrwCrcl(canvas2, ctx2);
+let drws2 = new DrwCrcl(canvas2, ctx2);                                                           // применяем класс
 drws2.bigCircle();
 drws2.smallCircle(170, 170);
 drws2.makeDraw();
